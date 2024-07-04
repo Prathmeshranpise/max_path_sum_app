@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: max-path-sum-deployment
+  labels:
+    app: max-path-sum
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: max-path-sum
+  template:
+    metadata:
+      labels:
+        app: max-path-sum
+    spec:
+      containers:
+      - name: max-path-sum-container
+        image: max_path_sum_app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
